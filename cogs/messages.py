@@ -2,10 +2,9 @@ import aiohttp
 import asyncio
 import discord
 from discord.ext import commands
-from config import TOKEN
+from config import TOKEN, API_URL
 
-api_url = 'https://discord.com/api/v9/channels/'
-
+api_url = API_URL
 
 class Messages(commands.Cog):
 
@@ -64,7 +63,7 @@ class Messages(commands.Cog):
                     'Authorization': TOKEN,
                     'Content-Type': 'application/json'
         }
-        dm_channel = await session.post('https://discord.com/api/v9/users/@me/channels',
+        dm_channel = await session.post('https://discord.com/api/v10/users/@me/channels',
                                         headers=headers,
                                         json={'recipient_id': user_id})
         if dm_channel.status == 200:

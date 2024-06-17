@@ -1,9 +1,9 @@
 import discord
 from discord.ext import commands
 import aiohttp
-from config import TOKEN
+from config import TOKEN, API_URL
 
-api_url = 'https://discord.com/api/v9/channels/'
+api_url = API_URL
 
 class Info(commands.Cog):
     
@@ -11,7 +11,7 @@ class Info(commands.Cog):
         self.bot = bot
 
     @commands.command(brief='// <@username> or <user_id>')
-    async def userinfo(self, ctx, user:discord.User):
+    async def user(self, ctx, user:discord.User):
         user_id = user.id
         username = user.name
         created_at = user.created_at.strftime("%d-%m-%Y %H:%M:%S")
@@ -19,7 +19,7 @@ class Info(commands.Cog):
         await ctx.message.edit(response)
 
     @commands.command(brief='// no argument needed')
-    async def serverinfo(self, ctx):
+    async def server(self, ctx):
         name = ctx.guild.name
         guild_id = ctx.guild.id
         created = ctx.guild.created_at.strftime("%d-%m-%Y %H:%M:%S")

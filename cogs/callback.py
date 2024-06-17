@@ -1,9 +1,9 @@
 import discord
 from discord.ext import commands
 import aiohttp
-from config import TOKEN, CALLBACK_CHANNEL
+from config import TOKEN, CALLBACK_CHANNEL, API_URL
 
-api_url = 'https://discord.com/api/v9/channels/'
+api_url = API_URL
 
 
 class Callback(commands.Cog):
