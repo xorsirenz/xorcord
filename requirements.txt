@@ -1,4 +1,5 @@
-discord.py
 discord.py-self
 aiohttp
 asyncio
+requests
+flask

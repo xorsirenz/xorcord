@@ -6,6 +6,7 @@ import sys
 import discord
 from discord.ext import commands
 from config import TOKEN
+from utils import get_current_user
 
 bot = commands.Bot(command_prefix="-", self_bot=True)
 logging.basicConfig(stream=sys.stdout, level=logging.ERROR)
@@ -14,6 +15,10 @@ token = TOKEN
 @bot.event
 async def on_ready():
     print(f'lessgo', {bot.user.name}, {bot.user.id})
+
+@bot.command(brief='// no arguemnt needed')
+async def login(ctx: commands.Context):
+    await ctx.message.edit('[oabot/auth](http://localhost:5000)')
 
 @bot.command(brief='// <extension>')
 async def load(ctx, extension):
@@ -42,4 +47,6 @@ async def main():
         await load_ext()
         await bot.start(TOKEN)
 
-asyncio.run(main())
+
+if __name__ == '__main__':
+    asyncio.run(main())

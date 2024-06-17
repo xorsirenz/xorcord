@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import aiohttp
-from config import TOKEN, API_URL
+from config import API_URL
 
 api_url = API_URL
 
@@ -15,7 +15,8 @@ class Info(commands.Cog):
         user_id = user.id
         username = user.name
         created_at = user.created_at.strftime("%d-%m-%Y %H:%M:%S")
-        response = f'```user id: {user_id}\nusername: {username}\naccount created: {created_at}\n```'
+        user_bot = user.bot
+        response = f'```user id: {user_id}\nusername: {username}\naccount created: {created_at}\nBot:{user_bot}```'
         await ctx.message.edit(response)
 
     @commands.command(brief='// no argument needed')

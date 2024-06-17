@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<body>
+  {% if current_user %}
+  <p>Logged in</p>
+    <a href="/logout"><button>Logout</button></a>
+
+    <p>ID: {{current_user['id']}}</p>
+    <p>USERNAME: {{current_user['username']}}</p>
+    <p>EMAIL: {{current_user['email']}}</p>
+    <p>CONNECTIONS: {{user_connections}}</p>
+    {% for guild in guilds %}
+      <p>GUILDS: {{user_guilds}}</p>
+    {% endfor %}
+  {% else %}
+    <a href="{{oauth_url}}"><button>Login with Discord</button></a>
+  {% endif %}
+</body>
+{% endblock %}
