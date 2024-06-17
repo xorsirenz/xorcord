@@ -5,6 +5,7 @@ from config import TOKEN, CALLBACK_CHANNEL
 
 api_url = 'https://discord.com/api/v9/channels/'
 
+
 class Callback(commands.Cog):
 
     def __init__(self, bot):
@@ -26,7 +27,7 @@ class Callback(commands.Cog):
                 async with aiohttp.ClientSession() as session: 
                     r = await session.post(f"{api_url}{callback_channel}/messages", 
                     data=payload, headers=headers, ssl=False)
-                    #await message.channel.send(f"hi, im logged out of discord rn\nyou want to contact me on jabber:\nxorsirenz@exploit.im")
+                    #await message.channel.send(f"hi")
 
 async def setup(bot):
     await bot.add_cog(Callback(bot))
