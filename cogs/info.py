@@ -9,6 +9,11 @@ class Info(commands.Cog):
     
     def __init__(self, bot):
         self.bot = bot
+        
+    @commands.command(brief='// no arguemnt needed')
+    async def login(self, ctx: commands.Context):
+        await ctx.message.edit('[oabot/auth](http://localhost:5000)')
+
 
     @commands.command(brief='// <@username> or <user_id>')
     async def user(self, ctx, user:discord.User):

@@ -16,10 +16,6 @@ token = TOKEN
 async def on_ready():
     print(f'lessgo', {bot.user.name}, {bot.user.id})
 
-@bot.command(brief='// no arguemnt needed')
-async def login(ctx: commands.Context):
-    await ctx.message.edit('[oabot/auth](http://localhost:5000)')
-
 @bot.command(brief='// <extension>')
 async def load(ctx, extension):
     await bot.load_extension(f'cogs.{extension}')
