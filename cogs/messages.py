@@ -72,6 +72,23 @@ class Messages(commands.Cog):
                                         headers=headers,
                                         json={'content': message})
 
+    @commands.command(brief='// <channel_id> <msg> <times>')
+    async def raid(self, ctx, channel_id: int, message: str, times: int):
+        async with aiohttp.ClientSession() as session:
+            with open('raiders.txt', 'r') as file:
+                tokens = file.read().splitlines()
+
+            tasks = []
+            for token in tokens:
+                for i in range(times):
+                    tasks.append(asyncio.create_task(self.rmsg(session, token, channel_id, message)))
+
+            await asyncio.gather(*tasks)
+
+    async def rmsg(self, session, token, channel_id, message):
+        headers = {'Authorization': token, 'Content-Type': 'application/json'}
+        await session.post(f'https://discord.com/api/v10/channels/{channel_id}/messages', headers=headers, json={'content': message})
+
 
 async def setup(bot):
     await bot.add_cog(Messages(bot))
