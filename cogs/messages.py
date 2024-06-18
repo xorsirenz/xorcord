@@ -49,8 +49,8 @@ class Messages(commands.Cog):
                                         headers=headers,
                                         json={'content': message})
 
-    @commands.command(brief='// <amount> <user_id> <message>')
-    async def spamdm(self, ctx, times:int, user_id:int, *, message:str):
+    @commands.command(brief='// <user_id> <amount> <message>')
+    async def spamdm(self, ctx,  user_id:int, times:int,*, message:str):
         async with aiohttp.ClientSession() as session:
             tasks = []
             for i in range(times):
@@ -72,8 +72,8 @@ class Messages(commands.Cog):
                                         headers=headers,
                                         json={'content': message})
 
-    @commands.command(brief='// <channel_id> <msg> <times>')
-    async def raid(self, ctx, channel_id: int, message: str, times: int):
+    @commands.command(brief='// <channel_id> <amount> <message>')
+    async def raid(self, ctx, channel_id: int,  times: int, *, message: str):
         async with aiohttp.ClientSession() as session:
             with open('raiders.txt', 'r') as file:
                 tokens = file.read().splitlines()
