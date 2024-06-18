@@ -1,4 +1,5 @@
 config.py
+raiders.txt
 *.bak
 
 # Byte-compiled / optimized / DLL files
