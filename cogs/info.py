@@ -14,7 +14,6 @@ class Info(commands.Cog):
     async def login(self, ctx: commands.Context):
         await ctx.message.edit('[oabot/auth](http://localhost:5000)')
 
-
     @commands.command(brief='// <@username> or <user_id>')
     async def user(self, ctx, user:discord.User):
         user_id = user.id
