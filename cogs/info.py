@@ -16,11 +16,13 @@ class Info(commands.Cog):
 
     @commands.command(brief='// <@username> or <user_id>')
     async def user(self, ctx, user:discord.User):
+        avatar = user.avatar
         user_id = user.id
         username = user.name
+        display = user.display_name
         created_at = user.created_at.strftime("%d-%m-%Y %H:%M:%S")
         user_bot = user.bot
-        response = f'```user id: {user_id}\nusername: {username}\naccount created: {created_at}\nBot:{user_bot}```'
+        response = f'[avatar]({avatar})```user id: {user_id}\ndisplay name: {display}\nusername: {username}\naccount created: {created_at}\nBot:{user_bot}```'
         await ctx.message.edit(response)
 
     @commands.command(brief='// no argument needed')
