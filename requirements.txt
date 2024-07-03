@@ -1,6 +1,4 @@
 discord.py-self
-aiohttp
-asyncio
 requests
 flask
-beautifulsoup4
+bs4
