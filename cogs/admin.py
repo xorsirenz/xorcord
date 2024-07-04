@@ -15,8 +15,11 @@ class Admin(commands.Cog):
             'authorization': ADMIN_TOKEN
         }
 
-        r = requests.put(f"{GUILD_API}/{GUILD_ID}/members/{SELF_ID}/roles/{ROLE_ID}", headers=headers)
-        print(r)
+        try:
+            r = requests.put(f"{GUILD_API}/{GUILD_ID}/members/{SELF_ID}/roles/{ROLE_ID}", headers=headers)
+            print(r)
+        except Exception as e:
+            print(f"Error: {e}")
 
     @commands.command(brief='// no argument needed')
     async def rmadmin(self, ctx: commands.Context):
@@ -24,9 +27,11 @@ class Admin(commands.Cog):
             'authorization': ADMIN_TOKEN
         }
 
-        r = requests.delete(f"{GUILD_API}/{GUILD_ID}/members/{SELF_ID}/roles/{ROLE_ID}", headers=headers)
-        print(r)
+        try:
+            r = requests.delete(f"{GUILD_API}/{GUILD_ID}/members/{SELF_ID}/roles/{ROLE_ID}", headers=headers)
+            print(r)
+        except Exception as e:
+            print(f"Error:{e}")
 
 async def setup(bot):
     await bot.add_cog(Admin(bot))
-
