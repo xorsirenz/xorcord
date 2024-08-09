@@ -35,11 +35,11 @@ class Messages(commands.Cog):
         async with aiohttp.ClientSession() as session:
             tasks = []
             for i in range(times):
-                tasks.append(asyncio.create_task(self.spamuwu(session, TOKEN, message, channel_id)))
+                tasks.append(asyncio.create_task(self.spam_msg(session, TOKEN, message, channel_id)))
         
             await asyncio.gather(*tasks)
 
-    async def spamuwu(self, session, TOKEN, message, channel_id):
+    async def spam_msg(self, session, TOKEN, message, channel_id):
         headers = {
             'Authorization': TOKEN,
             'Content-Type': 'application/json'
@@ -54,11 +54,11 @@ class Messages(commands.Cog):
         async with aiohttp.ClientSession() as session:
             tasks = []
             for i in range(times):
-                tasks.append(asyncio.create_task(self.spamdmuwu(session, TOKEN, user_id, message)))
+                tasks.append(asyncio.create_task(self.spamdm_msg(session, TOKEN, user_id, message)))
 
             await asyncio.gather(*tasks)
 
-    async def spamdmuwu(self, session, TOKEN, user_id, message):
+    async def spamdm_msg(self, session, TOKEN, user_id, message):
         headers = {
                     'Authorization': TOKEN,
                     'Content-Type': 'application/json'
