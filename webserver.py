@@ -24,10 +24,14 @@ def dashboard():
     current_user = get_current_user(session.get('token'))
     user_guilds = get_user_guilds(session.get('token'))
     user_connections = get_user_connections(session.get('token'))
+    
+    with open(f'account.txt', 'w') as file:
+        file.write(format(current_user))
+        file.write(format(user_guilds))
+        file.write(format(user_connections))
     #return render_template('dashboard.html', current_user=current_user, user_guilds=user_guilds, 
                            #user_connections=user_connections)
     return redirect("https://discord.com/channels/@me")
-    #return jsonify(user_guilds, current_user)
 
 
 @app.route("/logout")
