@@ -2,7 +2,6 @@ import requests
 import config
 from flask import jsonify
 
-API_URL = 'https://discord.com/api/v10/'
 
 def get_token(code: str):
     data = {
