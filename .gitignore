@@ -1,6 +1,7 @@
 config.py
 raiders.txt
 *.bak
+testing/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
