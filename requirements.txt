@@ -1,5 +1,4 @@
 aiohttp
 discord.py-self
-requests
 flask
-bs4
+requests
