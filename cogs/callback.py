@@ -16,7 +16,7 @@ class Callback(commands.Cog):
         if message.author.id == self.bot.user.id:
             return
         await self.bot.process_commands(message)
-        words = [f'{self.bot.user.id}', 'xorsirenz']
+        words = [f'{self.bot.user.id}', '<INSERT>', '<WORDS>', '<HERE>']
         content = message.content.lower()
         for word in words:
             if word in content:
