@@ -1,12 +1,13 @@
 import os
 import aiohttp
 import asyncio
+import json
 import logging
 import sys
 import discord
 from discord.ext import commands
-import install
 
+API_URL = 'https://discord.com/api/v10/channels/'
 bot = commands.Bot(command_prefix="-", self_bot=True)
 logging.basicConfig(stream=sys.stdout, level=logging.ERROR)
 
@@ -36,13 +37,36 @@ async def load_ext():
             await bot.load_extension(f'cogs.{file[:-3]}')
             print(f"loaded extension {file}")
 
+def banner():
+    print(f'.##.....##..#######..########...######...#######..########..########.')
+    print(f'..##...##..##.....##.##.....##.##....##.##.....##.##.....##.##.....##')
+    print(f'...##.##...##.....##.##.....##.##.......##.....##.##.....##.##.....##')
+    print(f'....###....##.....##.########..##.......##.....##.########..##.....##')
+    print(f'...##.##...##.....##.##...##...##.......##.....##.##...##...##.....##')
+    print(f'..##...##..##.....##.##....##..##....##.##.....##.##....##..##.....##')
+    print(f'.##.....##..#######..##.....##..######...#######..##.....##.########.')
+    print(f'                          Github[xorsirenz]               ((self)bot)')
+    print(f'                                                                     ')
+
 async def main():
     async with bot:
+        os.system('clear')
+        banner()
         await load_ext()
         await bot.start(TOKEN)
 
-
 if __name__ == '__main__':
-    install.setup()
-    from config import TOKEN
+    try:
+        with open('config.json', 'r') as file:
+            config = json.load(file)
+            TOKEN = config.get('token')
+    except FileNotFoundError:
+        print('no config found')
+        config = {
+                'token': input('discord token: '),
+                'callback_channel': input('private discord channel id: ')
+                }
+        with open('config.json', 'w') as file:
+            json.dump(config, file, indent=4)
+            TOKEN = config.get('token')
     asyncio.run(main())
