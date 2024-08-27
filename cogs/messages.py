@@ -7,6 +7,10 @@ from selfbot import API_URL
 
 api_url = API_URL
 
+with open('config.json', 'r') as file:
+    config = json.load(file)
+TOKEN = config.get('token')
+
 class Messages(commands.Cog):
 
     def __init__(self, bot):
