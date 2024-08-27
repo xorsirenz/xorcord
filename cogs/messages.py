@@ -1,8 +1,9 @@
 import aiohttp
 import asyncio
+import json
 import discord
 from discord.ext import commands
-from config import TOKEN, API_URL
+from selfbot import API_URL
 
 api_url = API_URL
 

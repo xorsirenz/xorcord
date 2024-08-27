@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import aiohttp
-from config import API_URL
+from selfbot import API_URL
 
 api_url = API_URL
 
