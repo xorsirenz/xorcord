@@ -39,14 +39,14 @@ async def load_ext():
 
 def banner():
     os.system('clear')
-    print(f"                                                            ")
-    print(f"  ██   ██  ██████  ██████   ██████  ██████  ██████  ██████  ")
-    print(f"   ██ ██  ██    ██ ██   ██ ██      ██    ██ ██   ██ ██   ██ ")
-    print(f"    ███   ██    ██ ██████  ██      ██    ██ ██████  ██   ██ ")
-    print(f"   ██ ██  ██    ██ ██   ██ ██      ██    ██ ██   ██ ██   ██ ")
-    print(f"  ██   ██  ██████  ██   ██  ██████  ██████  ██   ██ ██████  ")                                                      
-    print(f'                       Github[xorsirenz]         ((self)bot)')
-    print(f'                                                            ')
+    print(f"                                                           ")
+    print(f" ██   ██  ██████  ██████   ██████  ██████  ██████  ██████  ")
+    print(f"  ██ ██  ██    ██ ██   ██ ██      ██    ██ ██   ██ ██   ██ ")
+    print(f"   ███   ██    ██ ██████  ██      ██    ██ ██████  ██   ██ ")
+    print(f"  ██ ██  ██    ██ ██   ██ ██      ██    ██ ██   ██ ██   ██ ")
+    print(f" ██   ██  ██████  ██   ██  ██████  ██████  ██   ██ ██████  ")                                                      
+    print(f"                     Github[xorsirenz]         ((self)bot) ")
+    print(f"                                                           ")
  
 async def main():
     async with bot:
