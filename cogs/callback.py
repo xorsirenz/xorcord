@@ -4,7 +4,7 @@ import aiohttp
 import json
 from selfbot import API_URL
 
-api_url = API_URL
+#api_url = API_URL
 
 class Callback(commands.Cog):
 
@@ -20,6 +20,7 @@ class Callback(commands.Cog):
         content = message.content.lower()
         with open('config.json', 'r') as file:
             config = json.load(file)
+        TOKEN = config.get('token')
         CALLBACK_CHANNEL = config.get('callback_channel')
         for word in words:
             if word in content:
@@ -28,7 +29,7 @@ class Callback(commands.Cog):
                 callback_channel = CALLBACK_CHANNEL
 
                 async with aiohttp.ClientSession() as session: 
-                    r = await session.post(f"{api_url}{callback_channel}/messages", 
+                    r = await session.post(f"{API_URL}{callback_channel}/messages", 
                     data=payload, headers=headers, ssl=False)
                     #await message.channel.send(f"hi")
 
