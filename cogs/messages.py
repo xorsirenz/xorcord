@@ -51,7 +51,7 @@ class Messages(commands.Cog):
                                         json={'content': message})
 
     @commands.command(brief='// <user_id> <amount> <message>')
-    async def spamdm(self, ctx,  user_id:int, times:int,*, message:str):
+    async def spamdm(self, ctx, user_id:int, times:int,*, message:str):
         async with aiohttp.ClientSession() as session:
             tasks = []
             for i in range(times):
