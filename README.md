@@ -19,4 +19,6 @@ No Category:
 Type -help command for more info on a command.
 You can also type -help category for more info on a category.
 </pre>
-
+###### install
+<pre>
+pip install -r requirements.txt
