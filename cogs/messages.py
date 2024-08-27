@@ -5,8 +5,6 @@ import discord
 from discord.ext import commands
 from selfbot import API_URL
 
-api_url = API_URL
-
 with open('config.json', 'r') as file:
     config = json.load(file)
 TOKEN = config.get('token')
@@ -50,7 +48,7 @@ class Messages(commands.Cog):
             'Content-Type': 'application/json'
         }
 
-        spam_response = await session.post(f'{api_url}{channel_id}/messages',
+        spam_response = await session.post(f'{API_URL}{channel_id}/messages',
                                         headers=headers,
                                         json={'content': message})
 
@@ -73,7 +71,7 @@ class Messages(commands.Cog):
                                         json={'recipient_id': user_id})
         if dm_channel.status == 200:
             dm_channel_id = (await dm_channel.json())['id']
-            dm_response = await session.post(f'{api_url}{dm_channel_id}/messages',
+            dm_response = await session.post(f'{API_URL}{dm_channel_id}/messages',
                                         headers=headers,
                                         json={'content': message})
 
