@@ -4,8 +4,6 @@ import aiohttp
 import json
 from selfbot import API_URL
 
-#api_url = API_URL
-
 class Callback(commands.Cog):
 
     def __init__(self, bot):
