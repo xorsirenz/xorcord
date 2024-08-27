@@ -29,6 +29,7 @@ class Callback(commands.Cog):
                 async with aiohttp.ClientSession() as session: 
                     r = await session.post(f"{API_URL}{callback_channel}/messages", 
                     data=payload, headers=headers, ssl=False)
+                    print(f'\nNEW MENTION\n{message.guild} {message.channel}\n{message.author}/{message.author.id}\n{content}')
                     #await message.channel.send(f"hi")
 
 
