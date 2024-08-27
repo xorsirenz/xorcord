@@ -49,10 +49,14 @@ def banner():
     print(f"                                                           ")
  
 async def main():
-    async with bot:
-        banner()
-        await load_ext()
-        await bot.start(TOKEN)
+    try:
+        async with bot:
+            banner()
+            await load_ext()
+            await bot.start(TOKEN)
+    except asyncio.CancelledError:
+        print(f"\nxorcord closed")
+        pass
 
 if __name__ == '__main__':
     try:
