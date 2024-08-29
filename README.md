@@ -1,7 +1,11 @@
 ###### xorcord
 <pre>
+Admin:
+  -admin    // no argument needed
+  -rmadmin  // no argument needed
 Info:
   -login    // no arguemnt needed
+  -members  // no agrument needed
   -server   // no argument needed
   -user     // @username or user_id
 Messages:
