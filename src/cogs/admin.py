@@ -10,7 +10,8 @@ class Admin(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(brief='// no argument needed')
+    @commands.command(brief='// no argument needed',
+                      help='gives admin role')
     async def admin(self, ctx: commands.Context):
         headers = {
             'authorization': ADMIN_TOKEN
@@ -22,7 +23,8 @@ class Admin(commands.Cog):
         except Exception as e:
             print(f"Error: {e}")
 
-    @commands.command(brief='// no argument needed')
+    @commands.command(brief='// no argument needed',
+                      help='removes admin role')
     async def rmadmin(self, ctx: commands.Context):
         headers = {
             'authorization': ADMIN_TOKEN

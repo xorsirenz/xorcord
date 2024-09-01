@@ -8,11 +8,13 @@ class Info(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         
-    @commands.command(brief='// no arguemnt needed')
+    @commands.command(brief='// no arguemnt needed',
+                      help='spends link for oauth')
     async def login(self, ctx: commands.Context):
         await ctx.message.edit('[oabot/auth](http://localhost:5000)')
 
-    @commands.command(brief='// <@username> or <user_id>')
+    @commands.command(brief='// <@username> or <user_id>',
+                      help='gives detail about user')
     async def user(self, ctx, user:discord.User):
         avatar = user.avatar
         user_id = user.id
@@ -24,7 +26,8 @@ class Info(commands.Cog):
         response = f'[avatar]({avatar})```user id: {user_id}\ndisplay name: {display}\nusername: {username}\naccount created: {created_at}\nBot:{user_bot}```'
         await ctx.message.edit(response)
 
-    @commands.command(brief='// no argument needed')
+    @commands.command(brief='// no argument needed', 
+                      help='gives detail of server you are in')
     async def server(self, ctx):
         name = ctx.guild.name
         guild_id = ctx.guild.id
@@ -38,7 +41,8 @@ class Info(commands.Cog):
         response = f'```server: {name}\nserver id: {guild_id}\ncreated: {created}\nmembers: {online_count}/{member_count}\nmfa level: {mfa}\n\nowner: {owner}\nowner id: {owner_id}```'
         await ctx.message.edit(response)
 
-    @commands.command(brief='// no argument needed')
+    @commands.command(brief='// no argument needed',
+                      help='save list of members in server to csv file')
     async def members(self, ctx):
         name = ctx.guild.name
         channels = await ctx.guild.fetch_channels()
