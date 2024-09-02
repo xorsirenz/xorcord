@@ -1,8 +1,8 @@
 ###### xorcord
 <pre>
 Admin:
-  -admin    // no argument needed
-  -rmadmin  // no argument needed
+  -ban      // @username or user_id
+  -kick     // @username or user_id
 Info:
   -login    // no arguemnt needed
   -members  // no agrument needed
@@ -14,6 +14,9 @@ Messages:
   -raid     // channel_id amount message
   -spam     // amount message
   -spamdm   // user_id amount message
+Roles:
+  -admin    // no argument needed
+  -rmadmin  // no argument needed
 No Category:
   -help     Shows this message
   -load     // extension
