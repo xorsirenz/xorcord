@@ -8,9 +8,6 @@ class Admin(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     
-    def self_check(self, check):
-        return check.ctx.author == self.bot.user
-
     @commands.command(brief='// <@username> or <user_id>', help='kicks user from server')
     async def kick(self, ctx, user:discord.User):
         await ctx.guild.kick(user)
