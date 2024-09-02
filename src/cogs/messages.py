@@ -17,24 +17,21 @@ class Messages(commands.Cog):
     def self_check(self, check):
         return check.ctx.author == self.bot.user
 
-    @commands.command(brief='// <amount>',
-                      help='deletes users messages')
+    @commands.command(brief='// <amount>', help='deletes users messages')
     async def purge(self, ctx, amount=100):
         if amount <= 100:
             await ctx.channel.purge(limit=amount, check=lambda message: message.author == ctx.author)
             return
         await ctx.message.edit(f'failed. 100 messages max.')
 
-    @commands.command(brief='// <amount>',
-                      help='remove all messages (requires delete message perms)')
+    @commands.command(brief='// <amount>', help='remove all messages (requires delete message perms)')
     async def purgeall(self, ctx, amount:int):
         if amount <= 100:
             await ctx.channel.purge(limit=amount)
             return
         await ctx.message.edit(f'failed. 100 messages max.')
 
-    @commands.command(brief='// <amount> <message>',
-                      help='spams messages')
+    @commands.command(brief='// <amount> <message>', help='spams messages')
     async def spam(self, ctx, times:int, *, message:str):
         channel_id = ctx.channel.id
 
@@ -55,8 +52,7 @@ class Messages(commands.Cog):
                                         headers=headers,
                                         json={'content': message})
 
-    @commands.command(brief='// <user_id> <amount> <message>',
-                      help='spams messages to dm')
+    @commands.command(brief='// <user_id> <amount> <message>', help='spams messages to dm')
     async def spamdm(self, ctx, user_id:int, times:int,*, message:str):
         async with aiohttp.ClientSession() as session:
             tasks = []
@@ -79,8 +75,7 @@ class Messages(commands.Cog):
                                         headers=headers,
                                         json={'content': message})
 
-    @commands.command(brief='// <channel_id> <amount> <message>',
-                      help='have multiple accounts spam messages (requires raiders.txt file with account tokens inside)')
+    @commands.command(brief='// <channel_id> <amount> <message>', help='have multiple accounts spam messages (requires raiders.txt file with account tokens inside)')
     async def raid(self, ctx, channel_id: int,  times: int, *, message: str):
         async with aiohttp.ClientSession() as session:
             with open('raiders.txt', 'r') as file:
