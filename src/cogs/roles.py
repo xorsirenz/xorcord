@@ -37,7 +37,7 @@ class Roles(commands.Cog):
         except Exception as e:
             print(f'Error: {e}')
 
-    @commands.command(brief='// <role_id>', help='gives admin role')
+    @commands.command(brief='// <role_id>', help='gives admin role (needs server admin token)')
     async def admin(self, ctx, role:str):
         try:
             headers = {'authorization': ADMIN_TOKEN}
