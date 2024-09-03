@@ -48,21 +48,12 @@ def banner():
     print(f" ██   ██  ██████  ██   ██  ██████  ██████  ██   ██ ██████  ")                                                      
     print(f"                     Github[xorsirenz]         ((self)bot) ")
     print(f"                                                           ")
- 
-async def main():
-    try:
-        async with bot:
-            banner()
-            await load_ext()
-            await bot.start(TOKEN)
-    except asyncio.CancelledError:
-        print(f'\nxorcord closed')
-        pass
 
-if __name__ == '__main__':
+def get_token():
     try:
         with open('config.json', 'r') as file:
             config = json.load(file)
+            global TOKEN
             TOKEN = config.get('token')
     except FileNotFoundError:
         print('no config found')
@@ -73,4 +64,17 @@ if __name__ == '__main__':
         with open('config.json', 'w') as file:
             json.dump(config, file, indent=4)
             TOKEN = config.get('token')
+
+async def main():
+    try:
+        async with bot:
+            get_token()
+            banner()
+            await load_ext()
+            await bot.start(TOKEN)
+    except asyncio.CancelledError:
+        print(f'\nxorcord closed')
+        pass
+
+if __name__ == '__main__':
     asyncio.run(main())
