@@ -8,7 +8,7 @@ import sys
 import discord
 from discord.ext import commands
 
-API_URL = 'https://discord.com/api/v10/channels/'
+API_URL = 'https://discord.com/api/v10/'
 bot = commands.Bot(command_prefix='-', self_bot=True)
 logging.basicConfig(stream=sys.stdout, level=logging.ERROR)
 
