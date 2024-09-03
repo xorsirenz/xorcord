@@ -10,7 +10,7 @@ class Admin(commands.Cog):
     async def kick(self, ctx, user:discord.User):
         await ctx.guild.kick(user)
 
-    @commands.command(brief='// <@username> or <user_id>', help='kicks user from server')
+    @commands.command(brief='// <@username> or <user_id>', help='bans user from server')
     async def ban(self, ctx, user:discord.User):
         await ctx.guild.ban(user)
 
