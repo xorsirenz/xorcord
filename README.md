@@ -15,8 +15,9 @@ Messages:
   -spam     // amount message
   -spamdm   // user_id amount message
 Roles:
-  -admin    // no argument needed
-  -rmrole   // no argument needed
+  -admin    // role_id
+  -role     // role_id
+  -rmrole   // role_id
 No Category:
   -help     Shows this message
   -load     // extension
