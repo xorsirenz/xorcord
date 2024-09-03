@@ -16,7 +16,7 @@ Messages:
   -spamdm   // user_id amount message
 Roles:
   -admin    // no argument needed
-  -rmadmin  // no argument needed
+  -rmrole   // no argument needed
 No Category:
   -help     Shows this message
   -load     // extension
