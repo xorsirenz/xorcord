@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import aiohttp
 import json
-from selfbot import get_token, API_URL
+from selfbot import API_URL
 
 class Callback(commands.Cog):
 
@@ -14,11 +14,14 @@ class Callback(commands.Cog):
         if message.author.id == self.bot.user.id:
             return
         await self.bot.process_commands(message)
-        words = [f'{self.bot.user.id}', 'xorsirenz']
+        words = [f'{self.bot.user.id}',
+                 'xorsirenz',
+                 'xorcord'
+                 ]
         content = message.content.lower()
-        token = get_token()
         with open('config.json', 'r') as file:
             config = json.load(file)
+        token = config.get('token') 
         CALLBACK_CHANNEL = config.get('callback_channel')
         for word in words:
             if word in content:
