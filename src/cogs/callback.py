@@ -22,15 +22,15 @@ class Callback(commands.Cog):
         with open('config.json', 'r') as file:
             config = json.load(file)
         token = config.get('token') 
-        CALLBACK_CHANNEL = config.get('callback_channel')
+        callback_channel = config.get('callback_channel')
         for word in words:
             if word in content:
                 payload = { 'content' : f"```{message.guild} {message.channel}\n{message.author}/{message.author.id}\n\n{content}```" }
                 headers = { 'authorization': token }
-                callback_channel = CALLBACK_CHANNEL
+                channel_id = callback_channel
 
                 async with aiohttp.ClientSession() as session: 
-                    r = await session.post(f"{API_URL}/channels/{callback_channel}/messages", 
+                    r = await session.post(f"{API_URL}/channels/{channel_id}/messages",
                     data=payload, headers=headers, ssl=False)
                     print(f'\nNEW MENTION\n{message.guild} {message.channel}\n{message.author}/{message.author.id}\n{content}')
                     #await message.channel.send(f"hi")
