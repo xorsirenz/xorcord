@@ -38,6 +38,7 @@ class Roles(commands.Cog):
             self_id = self.bot.user.id
             role_id = str(role)
             r = requests.put(f'{API_URL}/guilds/{guild_id}/members/{self_id}/roles/{role_id}', headers=headers)
+            await ctx.message.delete()
         except Exception as e:
             print(f'error: {e}')
 
@@ -50,6 +51,7 @@ class Roles(commands.Cog):
             self_id = self.bot.user.id
             role_id = str(role)
             r = requests.delete(f'{API_URL}/guilds/{guild_id}/members/{self_id}/roles/{role_id}', headers=headers)
+            await ctx.message.delete()
         except Exception as e:
             print(f'error: {e}')
 
@@ -62,6 +64,7 @@ class Roles(commands.Cog):
             self_id = self.bot.user.id
             role_id = str(role)
             r = requests.put(f'{API_URL}/guilds/{guild_id}/members/{self_id}/roles/{role_id}', headers=headers)
+            await ctx.message.delete()
         except Exception as e:
             print(f'error: {e}')
 
