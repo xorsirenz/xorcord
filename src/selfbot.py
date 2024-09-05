@@ -53,8 +53,6 @@ def get_token():
     try:
         with open('config.json', 'r') as file:
             config = json.load(file)
-            global TOKEN
-            TOKEN = config.get('token')
     except FileNotFoundError:
         print('no config found')
         config = {
@@ -63,7 +61,9 @@ def get_token():
                 }
         with open('config.json', 'w') as file:
             json.dump(config, file, indent=4)
+    finally:
             TOKEN = config.get('token')
+            return TOKEN
 
 async def main():
     try:
