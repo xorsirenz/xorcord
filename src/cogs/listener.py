@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import aiohttp
 import json
-from selfbot import API_URL
+from selfbot import API_URL, get_token
 
 class Listener(commands.Cog):
 
@@ -19,9 +19,9 @@ class Listener(commands.Cog):
                  'xorcord'
                  ]
         content = message.content.lower()
+        token = get_token() 
         with open('config.json', 'r') as file:
             config = json.load(file)
-        token = config.get('token') 
         listener_channel_id = config.get('listener_channel_id')
         for word in words:
             if word in content:
