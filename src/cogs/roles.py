@@ -5,24 +5,26 @@ from discord.ext import commands
 from selfbot import API_URL, get_token
 
 def get_admin_token():
-    with open('config.json', 'r') as file:
-        config = json.load(file)
-        if 'admin_token' in config:
-            admin_token = config.get('admin_token')
-            return admin_token
+    try:
+        with open('config.json', 'r') as file:
+            config = json.load(file)
+            if 'admin_token' in config:
+                print('loaded admin token')
+    except FileNotFoundError:
+        answer = input('setup admin server yes or no? > ')
+        if answer.lower() == 'no':
+            pass
         else:
-            answer = input('setup admin server yes or no? > ')
-            if answer.lower() == 'no':
-                pass
-            else:
-                admin_config = {
-                        'admin_token': input('enter guild user admin token: '),
-                }
-                admin_token = admin_config.get('admin_token')
-                config.update(admin_config)
-                with open('config.json', 'w') as file:
-                    json.dump(config, file, indent=4)
-                    return admin_token
+            admin_config = {
+                    'admin_token': input('enter guild user admin token: '),
+            }
+            admin_token = admin_config.get('admin_token')
+            config.update(admin_config)
+            with open('config.json', 'w') as file:
+                json.dump(config, file, indent=4)
+    finally:
+        admin_token = config.get('admin_token')
+        return admin_token
 
 class Roles(commands.Cog):
 
