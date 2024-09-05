@@ -58,7 +58,7 @@ def get_token():
         print('no config found')
         config = {
                 'token': input('discord token: '),
-                'callback_channel': input('private discord channel id: ')
+                'listener_channel_id': input('enter discord channel id for listener: ')
                 }
         with open('config.json', 'w') as file:
             json.dump(config, file, indent=4)

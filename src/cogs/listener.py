@@ -4,7 +4,7 @@ import aiohttp
 import json
 from selfbot import API_URL
 
-class Callback(commands.Cog):
+class Listener(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
@@ -22,12 +22,12 @@ class Callback(commands.Cog):
         with open('config.json', 'r') as file:
             config = json.load(file)
         token = config.get('token') 
-        callback_channel = config.get('callback_channel')
+        listener_channel_id = config.get('listener_channel_id')
         for word in words:
             if word in content:
                 payload = { 'content' : f"```{message.guild} {message.channel}\n{message.author}/{message.author.id}\n\n{content}```" }
                 headers = { 'authorization': token }
-                channel_id = callback_channel
+                channel_id = listener_channel_id
 
                 async with aiohttp.ClientSession() as session: 
                     r = await session.post(f"{API_URL}/channels/{channel_id}/messages",
@@ -37,4 +37,4 @@ class Callback(commands.Cog):
 
 
 async def setup(bot):
-    await bot.add_cog(Callback(bot))
+    await bot.add_cog(Listener(bot))
