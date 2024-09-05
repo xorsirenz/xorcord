@@ -3,6 +3,7 @@
 Admin:
   -ban      // @username or user_id
   -kick     // @username or user_id
+  -leave    // no argument needed
 Info:
   -login    // no arguemnt needed
   -members  // no agrument needed
