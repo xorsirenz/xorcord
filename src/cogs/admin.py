@@ -23,6 +23,7 @@ class Admin(commands.Cog):
         await ctx.message.delete()
         await ctx.guild.leave()
         print(f'you left the server: {ctx.guild}')
+    
 
 async def setup(bot):
     await bot.add_cog(Admin(bot))
