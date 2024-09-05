@@ -25,6 +25,7 @@ async def load(ctx, extension):
 async def reload(ctx, extension):
     await bot.unload_extension(f'cogs.{extension}')
     await bot.load_extension(f'cogs.{extension}')
+    await ctx.message.delete()
     print(f'reloaded extension: {extension}')
 
 @bot.command(brief='// <extension>')
@@ -62,16 +63,16 @@ def get_token():
         with open('config.json', 'w') as file:
             json.dump(config, file, indent=4)
     finally:
-            TOKEN = config.get('token')
-            return TOKEN
+            token = config.get('token')
+            return token
 
 async def main():
     try:
         async with bot:
-            get_token()
+            token = get_token()
             banner()
             await load_ext()
-            await bot.start(TOKEN)
+            await bot.start(token)
     except asyncio.CancelledError:
         print(f'\nxorcord closed')
         pass
