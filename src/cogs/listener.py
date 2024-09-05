@@ -13,18 +13,20 @@ class Listener(commands.Cog):
     async def on_message(self, message):
         if message.author.id == self.bot.user.id:
             return
+        
         await self.bot.process_commands(message)
+        content = message.content.lower()
         words = [f'{self.bot.user.id}',
                  'xorsirenz',
                  'xorcord'
                  ]
-        content = message.content.lower()
-        token = get_token() 
-        with open('config.json', 'r') as file:
-            config = json.load(file)
-        listener_channel_id = config.get('listener_channel_id')
+        
         for word in words:
             if word in content:
+                with open('config.json', 'r') as file:
+                    config = json.load(file)
+                listener_channel_id = config.get('listener_channel_id')
+                token = get_token() 
                 payload = { 'content' : f"```{message.guild} {message.channel}\n{message.author}/{message.author.id}\n\n{content}```" }
                 headers = { 'authorization': token }
                 channel_id = listener_channel_id
