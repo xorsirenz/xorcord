@@ -18,7 +18,7 @@ class Admin(commands.Cog):
         await ctx.message.delete()
         print(f'you banned {user}')
 
-    @commands.command(brief='// <@username> or <user_id>', help='bans user from server')
+    @commands.command(brief='// no argument needed', help='leaves server')
     async def leave(self, ctx):
         await ctx.message.delete()
         await ctx.guild.leave()
