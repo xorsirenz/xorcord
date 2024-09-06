@@ -1,7 +1,5 @@
 import discord
 from discord.ext import commands
-import json
-from selfbot import API_URL, get_token
 
 class Log(commands.Cog):
 
@@ -11,7 +9,7 @@ class Log(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, message):
         # add user ID you wish to log inside the backets [] 
-        users = []
+        users = [907764662689497198]
         for user in users:
             if message.author.id == user:
                 content = message.content.lower()
