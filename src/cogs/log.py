@@ -10,7 +10,7 @@ class Log(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        # replace with user tokens you wish to log
+        # add user ID you wish to log inside the backets [] 
         users = []
         for user in users:
             if message.author.id == user:
