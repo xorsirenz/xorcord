@@ -9,7 +9,7 @@ class Log(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, message):
         # add user ID you wish to log inside the backets [] 
-        users = [907764662689497198]
+        users = []
         for user in users:
             if message.author.id == user:
                 content = message.content.lower()
