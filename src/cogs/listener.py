@@ -35,6 +35,7 @@ class Listener(commands.Cog):
                     r = await session.post(f"{API_URL}/channels/{channel_id}/messages",
                     data=payload, headers=headers, ssl=False)
                     print(f'\nNEW MENTION\n{message.guild} {message.channel}\n{message.author}/{message.author.id}\n{content}')
+                    return
                     #await message.channel.send(f"hi")
 
 
