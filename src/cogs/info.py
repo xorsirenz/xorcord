@@ -21,7 +21,8 @@ class Info(commands.Cog):
         created_at = user.created_at.strftime("%d-%m-%Y %H:%M:%S")
         user_bot = user.bot
 
-        response = f'[avatar]({avatar})```user id: {user_id}\ndisplay name: {display}\nusername: {username}\naccount created: {created_at}\nBot:{user_bot}```'
+        response = f"```user id: {user_id}\ndisplay name: {display}\nusername: {username}\naccount created: {created_at}\nBot:{user_bot}```[avatar]({avatar})"
+
         await ctx.message.edit(response)
 
     @commands.command(brief='// no argument needed', help='gives detail of server you are in')
