@@ -52,8 +52,6 @@ class Messages(commands.Cog):
                                         headers=headers,
                                         json={'content': message})
 
-        print(spam_response)
-
     @commands.command(brief='// <user_id> <amount> <message>', help='spams messages to dm')
     async def spamdm(self, ctx, user_id:int, times:int,*, message:str):
         async with aiohttp.ClientSession() as session:
