@@ -48,9 +48,11 @@ class Messages(commands.Cog):
             'Content-Type': 'application/json'
         }
 
-        spam_response = await session.post(f'{API_URL}{channel_id}/messages',
+        spam_response = await session.post(f'{API_URL}/channels/{channel_id}/messages',
                                         headers=headers,
                                         json={'content': message})
+
+        print(spam_response)
 
     @commands.command(brief='// <user_id> <amount> <message>', help='spams messages to dm')
     async def spamdm(self, ctx, user_id:int, times:int,*, message:str):
