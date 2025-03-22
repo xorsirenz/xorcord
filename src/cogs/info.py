@@ -4,10 +4,10 @@ import aiohttp
 import csv
 
 class Info(commands.Cog):
-    
+
     def __init__(self, bot):
         self.bot = bot
-        
+ 
     @commands.command(brief='// no arguemnt needed', help='sends link for oauth')
     async def login(self, ctx: commands.Context):
         await ctx.message.edit('[oabot/auth](http://localhost:5000)')
