@@ -10,7 +10,8 @@ class AtoH(commands.Cog):
     async def atoh(self, ctx, message:str):
         hex_binary = message.encode(encoding='utf_8')
         hex_text = hex_binary.hex()
-        await ctx.message.edit(hex_text)
+        formatted_hex = " ".join(hex_text[i : i +2] for i in range(0, len(hex_text), 2))
+        await ctx.message.edit(formatted_hex)
 
 async def setup(bot):
     await bot.add_cog(AtoH(bot))
