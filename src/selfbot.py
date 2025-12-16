@@ -57,9 +57,9 @@ def get_token():
     except FileNotFoundError:
         print('no config found')
         config = {
-                'token': input('discord token: '),
-                'listener_channel_id': input('enter discord channel id for listener: ')
-                }
+            'token': input('discord token: '),
+            'listener_channel_id': input('enter discord channel id for listener: ')
+            }
         with open('config.json', 'w') as file:
             json.dump(config, file, indent=4)
     finally:

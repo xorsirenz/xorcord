@@ -18,6 +18,13 @@ class Messages(commands.Cog):
         return check.ctx.author == self.bot.user
 
     @commands.command(brief='// <amount>', help='deletes users messages')
+    async def purgedm(self, ctx, amount=100):
+        if amount <= 100:
+            await ctx.channel.purge(limit=amount, check=lambda message: message.author == ctx.author)
+            return
+        await ctx.message.edit(f'failed. 100 messages max.')
+
+    @commands.command(brief='// <amount>', help='deletes users messages')
     async def purge(self, ctx, amount=100):
         if amount <= 100:
             await ctx.channel.purge(limit=amount, check=lambda message: message.author == ctx.author)
